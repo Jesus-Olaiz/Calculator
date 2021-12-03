@@ -1,46 +1,75 @@
-const calcBody = document.querySelectorAll(".calcBody");
-let inputArea = document.getElementById('input');
-const numbers = document.querySelectorAll("#number");
-const maths = document.querySelectorAll("#function");
-
-let result = 0;
-let math;
-let num1 = {value:0};
-let num2 = {value:0};
-input.value = "";
-
+const input = document.getElementById("input");
+const numbers = document.querySelectorAll(".number")
+const clearAll = document.getElementById("clearAll")
+const backspace = document.getElementById("clearLast")
+let operator = document.querySelectorAll(".operator")
+const sum = document.getElementById("sum")
+let num1 = 0
+let num2 = 0
+let operation 
 
 
-
-function typeNumbers() {
-  if (input.value === ""){
-  numbers.forEach((item) => {
-    item.addEventListener("click", e => {
-      inputArea.value += parseInt(item.textContent);
-      return console.log(parseInt(inputArea.value));
-    });
-  });
-}
-}
-
-
-
-function showMath() {
-maths.forEach((item) => {
-    item.addEventListener("click", e => {
-      inputArea.value = ""
-      inputArea.value += item.textContent;
-      math = item.textContent;
-      return math;
+input.value=""
+//Change input value to match number typed in
+function makeNumbers() {
+    numbers.forEach(element => {
+    element.addEventListener("click", ()=> {
+        input.value += element.textContent;
     })
-  });
+});
 }
 
-function calc() {
- do {
-   num1.value = typeNumbers()
-   showMath()
- } while (input.value.length > 0);
+//backspace and clear field
+backspace.addEventListener("click", () => {
+    let number = input.textContent
+    number = input.value
+    let newNumber = number.substring(0, number.length - 1)
+        if(newNumber.length === 0){
+            input.value = ""
+        }else{
+            input.value = parseInt(newNumber)
+        }
+})
+
+clearAll.addEventListener("click", () => {
+    input.value = ""
+})
+
+makeNumbers();
+
+//Find sum of 2 numbers based on operator
+
+function math(num1, num2){
+    if(operator === "+"){
+        input.value = num1 + num2
+    }if(operator === "-"){
+        input.value = num1 - num2
+    }if(operator === "×"){
+        input.value = num1 * num2
+    }if(operator === "÷"){
+        input.value = num1/num2
+    }
+    
 }
 
-calc();
+
+for (const element of operator) {
+    element.addEventListener("click", (e) => {
+        if (e.target.className = "OPERATOR"){
+            num1 = parseInt(input.value)
+            input.value += e.target.textContent
+            operator = e.target.textContent
+            console.log(operator)
+            console.log(num1);
+            
+        }
+    })
+}
+
+
+sum.addEventListener("click", () => {
+    num2 = input.value.match(/(?!\w+(\+|-|÷|×))\w+/g)
+    num2 = parseInt(num2[0])
+    
+    math(num1, num2)
+})

@@ -2,71 +2,38 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Calculating Calculator</title>
+    <title>Simple Calculator</title>
+    <script src="https://kit.fontawesome.com/575c34d2d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-
     <div class="calcBody">
-
-    <!-- Top Entry Area -->
-
-
-        <input class="inputArea" id="input" type="text" name="input" value="">
-
-
-      <div class="clear">
-        <div class="erase">C</div>
-        <div class="clearCache">CE</div>
+      <input type="text" id="input">
+      <div class="operators">
+        <button class="operator" id="add">+</button>
+        <button class="operator" id="subtract">-</button>
+        <button class="operator" id="multiply">&times;</button>
+        <button class="operator" id="divide">&divide;</button>
       </div>
-
-
-
-    <!-- Special Input Row -->
-
-        <div class="percent">%</div>
-        <div class= "reciprocal">1/x</div>
-
-
-        <div class="squares">
-          <div class = "squared">x^2</div>
-          <div class="squareRoot">2&#8730;x</div>
-        </div>
-
-
-
-
-    <!-- Number Buttons -->
-
-
-
-        <div class="num1" id = "number">1</div>
-        <div class="num2" id = "number">2</div>
-        <div class="num3" id = "number">3</div>
-        <div class="num4" id = "number">4</div>
-        <div class="num5" id = "number">5</div>
-        <div class="num6" id = "number">6</div>
-        <div class="num7" id = "number">7</div>
-        <div class="num8" id = "number">8</div>
-        <div class="num9" id = "number">9</div>
-
-        <div class="plusMin" id = "number">+/-</div>
-        <div class="num0" id = "number">0</div>
-        <div class="decimal" id = "number">.</div>
-
-
-
-      <!-- Function Column  -->
-
-        <div id="function" class="division">&#247;</div>
-        <div id="function" class="multiply">X</div>
-        <div id="function" class="add">+</div>
-        <div id="function" class="subtract">-</div>
-        <div id="function" class="sum">=</div>
-
-
+      <div class="numbers">
+        <button class = "number" id = "one">1</button>
+        <button class = "number" id = "two">2</button>
+        <button class = "number" id = "three">3</button>
+        <button class = "number" id = "four">4</button>
+        <button class = "number" id = "five">5</button>
+        <button class = "number" id = "six">6</button>
+        <button class = "number" id = "seven">7</button>
+        <button class = "number" id = "eight">8</button>
+        <button class = "number" id = "nine">9</button>
+        <button class = "number" id = "zero">0</button>
+      </div>
+      
+      <div class="functions">
+        <button id="clearAll">CE</button>
+        <button id="clearLast">C</button>
+        <button id="sum">=</button>
+      </div>
     </div>
-
     <script src="script.js" charset="utf-8"></script>
   </body>
 </html>
